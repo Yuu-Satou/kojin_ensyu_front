@@ -3,7 +3,7 @@ import Square from './Square';
 import Result from './Result';
 
 function Board () {
-    const [squareInfo, setSquareInfo] = useState([...Array(64)].map((_, index) => ({id: index, state: "none"})));
+    const [squareInfo, setSquareInfo] = useState([...Array(64)].map((_, index) => ({id: index, state: "none", track: false})));
 
     useEffect(() => {
         setStone(27, "white");
@@ -39,7 +39,8 @@ function Board () {
         setTimeout(() => {
             computerthink();
             setPlayerTurn(true);   
-            judge();             
+            judge();
+            showTrack();
         }, 1000);
 
     }
@@ -135,6 +136,14 @@ function Board () {
         setEnd(true);
         setYourStones(squareInfo.filter(s => s.state === "white").length);
         setComStones(squareInfo.filter(s => s.state === "black").length);
+    }
+
+    const showTrack = () => {
+        const trackId = available("white");
+        squareInfo.map(m => {
+            if(trackId.includes(m.id)) m.track = true;
+            else m.track = false;
+        })
     }
 
   return (

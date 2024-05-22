@@ -9,7 +9,7 @@ function Square(props) {
 
   return (
     <div className="Square" onClick={click}>
-      <div className={props.info.state}></div>
+      <div className={props.info.state + " " + (props.info.track && props.info.state === "none" ? "track" : "")}></div>
     </div>
   )
 }
