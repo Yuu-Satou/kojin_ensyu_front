@@ -23,7 +23,7 @@ function ResultLog() {
             </thead>
             <tbody>
                 {data.map(onedata => (
-                <tr key={onedata.id}>
+                <tr key={onedata.id} className={onedata.you < onedata.com ? "windata" : "losedata"}>
                     <td>{onedata.id}</td>
                     <td>{onedata.you}</td>
                     <td>{onedata.com}</td>

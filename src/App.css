@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   display: flex;
+  justify-content: space-between;
 }
 
 .Board {
@@ -45,11 +46,42 @@
 }
 
 .LogTable{
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: solid 2px;
+  margin: 50px;
 }
 
-.LogTable td, th {
-  border-bottom: solid 1px;
+.LogTable td {
+  border: solid 1px;
+  width: 100px;
+  height: 30px;
+  margin: 0 0 0 0;
+}
+
+.LogTable .windata{
+  background: lightcoral;
+}
+
+.LogTable .losedata{
+  background-color: lightcyan;
+}
+
+.LogTable th{
+  border: solid 2px;
   width: 100px;
   height: 50px;
+  margin: 0 0 0 0;
 }
 
+.result {
+  padding: 0px 0px 20px 0px;
+  font-size: 20px;
+}
+
+.submitButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background: greenyellow;
+}
