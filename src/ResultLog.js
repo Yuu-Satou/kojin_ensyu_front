@@ -44,7 +44,7 @@ function ResultLog() {
                     <td className={onedata.you > onedata.com ? "boldScore" : ""}>{onedata.you}</td>
                     <td className={onedata.you < onedata.com ? "boldScore" : ""}>{onedata.com}</td>
                     <td>{new Date(onedata.date).toLocaleDateString()}</td>
-                    <td><button onClick={() => deleteItem(onedata)}>×</button></td>
+                    <td><button onClick={() => deleteItem(onedata)} className='deleteButton'>×</button></td>
                 </tr>
                 ))}
             </tbody>

@@ -74,6 +74,7 @@
 
 .LogTable .losedata{
   background-color: lightcoral;
+  color: white;
 }
 
 .LogTable th{
@@ -106,4 +107,14 @@
 .boldScore {
   /* font-size: large; */
   font-weight: bold;
+}
+
+.deleteButton {
+  font-size: x-large;
+  color: white;
+  background: coral;
+  font-weight: bold;
+  border: solid 1px 1px 1px 1px;
+  width: 50px;
+  border-radius: 8px;
 }

@@ -42,7 +42,7 @@ function Board () {
             setPlayerTurn(true);   
             judge();
             showTrack();
-        }, 1000);
+        }, 500);
 
     }
 
@@ -156,6 +156,7 @@ function Board () {
                 <Square info={info} key={info.id} touchSquare={touchSquare} />
             ))}
         </div>
+        {end? <></> : <div>white: {squareInfo.filter(s => s.state === "white").length} black: {squareInfo.filter(s => s.state === "black").length}</div>}
         {end?<Result you={yourStones} com={comStones} />: <></>}
     </div>
   )
