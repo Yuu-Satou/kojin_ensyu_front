@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import Board from './Board';
 import './App.css';
 import ResultLog from './ResultLog';

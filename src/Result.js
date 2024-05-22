@@ -1,4 +1,5 @@
 import React from 'react'
+import { Navigate, useHref } from 'react-router-dom';
 
 function Result(props) {
 
@@ -10,13 +11,13 @@ function Result(props) {
           'Content-Type': 'application/json' 
         },
         body: JSON.stringify(data) 
-    }).then(res => console.log(res));
+    }).then(res => {window.location.href = "/";});
   }
 
   return (
     <div>
         <div className='result'>{props.you} - {props.com}</div>
-        <button onClick={submitResult} className='submitButton'>結果を送信</button>
+        <button onClick={submitResult} className='submitButton'>結果を送信してNewGame</button>
     </div>
   )
 }
