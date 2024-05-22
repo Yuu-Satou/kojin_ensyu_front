@@ -56,29 +56,38 @@
   border-spacing: 0;
   border-collapse: collapse;
   border: solid 2px;
+  border-color: gray;
   margin: 50px;
 }
 
 .LogTable td {
   border: solid 1px;
+  border-color: gray;
   width: 100px;
   height: 30px;
   margin: 0 0 0 0;
 }
 
 .LogTable .windata{
-  background: lightcoral;
+  background: lightcyan;
 }
 
 .LogTable .losedata{
-  background-color: lightcyan;
+  background-color: lightcoral;
 }
 
 .LogTable th{
   border: solid 2px;
+  border-color: gray;
+  background-color: lightyellow;
   width: 100px;
   height: 50px;
   margin: 0 0 0 0;
+}
+
+.LogTable caption{
+  font-size: large;
+  font-weight: bold;
 }
 
 .result {
@@ -92,4 +101,9 @@
   border-radius: 10px;
   background: greenyellow;
   border: none;
+}
+
+.boldScore {
+  /* font-size: large; */
+  font-weight: bold;
 }

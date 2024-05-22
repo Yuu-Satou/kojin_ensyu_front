@@ -11,6 +11,19 @@ function ResultLog() {
         })
         .catch(err => console.log(err));
     }, []);
+
+    const deleteItem = (onedata) => {
+        fetch("http://localhost:8080/delete", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json' 
+              },
+            body: JSON.stringify(onedata)
+        }).then(res => {
+            window.location.href = "/";
+        })
+
+    }
   return (
     <div>
         <table className='LogTable'>
@@ -21,15 +34,17 @@ function ResultLog() {
                     <th>あなた</th>
                     <th>相手</th>
                     <th>戦闘日時</th>
+                    <th>削除</th>
                 </tr>
             </thead>
             <tbody>
                 {data.map(onedata => (
-                <tr key={onedata.id} className={onedata.you < onedata.com ? "windata" : "losedata"}>
+                <tr key={onedata.id} className={onedata.you > onedata.com ? "windata" : "losedata"}>
                     <td>{onedata.id}</td>
-                    <td>{onedata.you}</td>
-                    <td>{onedata.com}</td>
+                    <td className={onedata.you > onedata.com ? "boldScore" : ""}>{onedata.you}</td>
+                    <td className={onedata.you < onedata.com ? "boldScore" : ""}>{onedata.com}</td>
                     <td>{new Date(onedata.date).toLocaleDateString()}</td>
+                    <td><button onClick={() => deleteItem(onedata)}>×</button></td>
                 </tr>
                 ))}
             </tbody>
