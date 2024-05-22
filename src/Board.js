@@ -138,10 +138,12 @@ function Board () {
     }
 
   return (
-    <div className="Board">
-        {squareInfo.map((info) => (
-            <Square info={info} key={info.id} touchSquare={touchSquare} />
-        ))}
+    <div>
+        <div className="Board">
+            {squareInfo.map((info) => (
+                <Square info={info} key={info.id} touchSquare={touchSquare} />
+            ))}
+        </div>
         {end?<Result you={yourStones} com={comStones} />: <></>}
     </div>
   )

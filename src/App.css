@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .Board {
@@ -8,6 +9,7 @@
   display:grid;
   grid-template-columns: repeat(8, 50px);
   grid-template-rows: repeat(8, 50px);
+  margin: 50px;
 }
 
 .Square {
@@ -41,3 +43,13 @@
   margin: 5px 0 0 5px;
   background: white;
 }
+
+.LogTable{
+}
+
+.LogTable td, th {
+  border-bottom: solid 1px;
+  width: 100px;
+  height: 50px;
+}
+
