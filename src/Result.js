@@ -1,8 +1,8 @@
 import React from 'react'
-import { Navigate, useHref } from 'react-router-dom';
 
 function Result(props) {
 
+  //propsからyouとcomの値をjson形式でlocalhost/8080/addに送る、送ったのちリダイレクト
     const submitResult = () => {
       const data = {"you": props.you, "com": props.com}
       fetch("http://localhost:8080/add", {

@@ -3,16 +3,16 @@ import Square from './Square';
 import Result from './Result';
 
 function Board () {
+    //マスごとの情報を格納する変数
     const [squareInfo, setSquareInfo] = useState([...Array(64)].map((_, index) => ({id: index, state: "none", track: false})));
 
     useEffect(() => {
+        //石の初期配置
         setStone(27, "white");
         setStone(28, "black");
         setStone(35, "black");
         setStone(36, "white");
     }, []);
-
-    const [turn, setTurn] = useState("white");
 
     const [playerTurn, setPlayerTurn] = useState(true);
 
@@ -22,6 +22,7 @@ function Board () {
 
     const [end, setEnd] = useState(false);
 
+    //マスをタッチしたときの処理、オセロのメインロジック
     const touchSquare = (id) => {
         if(playerTurn === false) return;
         const arr = available("white");
@@ -45,6 +46,7 @@ function Board () {
 
     }
 
+    //石を置けるマスを返す
     const available = (color) => {
         const arr = [];
         for(let square of squareInfo){
@@ -74,6 +76,7 @@ function Board () {
         return arr;
     }
 
+    //挟まれた石をひっくり返す
     const changeStones = (square) => {
         for(let r = -1; r < 2; r++){
             for(let l = -1; l < 2; l++){
@@ -105,17 +108,14 @@ function Board () {
         }
     }
 
-    const changeTurn = () => {
-        if(turn === "white") setTurn("black");
-        else setTurn("white");
-    }
-
+    //石を置く
     const setStone = (id, color) => {
         const copyInfo = [...squareInfo];
         copyInfo[id].state = color;
         setSquareInfo(copyInfo);
     }
 
+    //コンピュータが考えて石を置く
     const computerthink = () => {
         const arr = available("black");
         if(arr.length === 0) return;
@@ -125,6 +125,7 @@ function Board () {
         changeStones(squareInfo[id]);
     }
 
+    //勝利判定
     const judge = () => {
         if(available("black").length === 0 && available("white").length === 0){
             setPlayerTurn(false);
@@ -132,12 +133,14 @@ function Board () {
         }
     }
 
+    //ゲームを終える
     const endGame = () => {
         setEnd(true);
         setYourStones(squareInfo.filter(s => s.state === "white").length);
         setComStones(squareInfo.filter(s => s.state === "black").length);
     }
 
+    //squareinfoのトラック情報にavailable関数を用いてtrackの有無を追記
     const showTrack = () => {
         const trackId = available("white");
         squareInfo.map(m => {

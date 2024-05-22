@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 function ResultLog() {
     const [data, setData] = useState([]);
+
+    //localhost:8080、スプリングブート側から手に入るデータをdataに格納
     useEffect(()=>{
         fetch("http://localhost:8080", {method: "GET"})
         .then(res => {
